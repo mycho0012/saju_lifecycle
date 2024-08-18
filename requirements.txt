@@ -1,6 +1,7 @@
 streamlit
 langchain
 langchain-openai
+langchain-teddynote
 langchain-google-genai
 python-dotenv
 plotly
