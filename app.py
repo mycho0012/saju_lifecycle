@@ -34,8 +34,8 @@ def parse_date(input_str):
 def create_chain(model_choice):
     prompt = load_prompt("saju_prompt_general.yaml", encoding="utf-8")
     
-    if model_choice == "OpenAI GPT":
-        llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
+    if model_choice == "Google Gemini":
+        llm = ChatOpenAI(model_name="gemini-pro", temperature=0)
     else:  # Google Gemini
         llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0)
     
