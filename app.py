@@ -14,6 +14,8 @@ import os
 
 # API KEY 정보 로드
 load_dotenv()
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
 
 logging.langsmith("saju_lifecycle")
 
