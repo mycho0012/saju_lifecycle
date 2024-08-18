@@ -15,6 +15,8 @@ import os
 # API KEY 정보 로드
 load_dotenv()
 
+logging.langsmith("saju_lifecycle")
+
 # 전역 변수로 사주 데이터 로드 (성능 최적화)
 SAJU_DATA = load_saju_data('saju_cal.csv')
 
