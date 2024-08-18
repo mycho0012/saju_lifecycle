@@ -181,8 +181,8 @@ if st.session_state.analyzed:
         사주와 운세는 절대적인 것이 아니라 참고사항임을 언급하고, 개인의 노력과 선택이 중요함을 강조해주세요.
         """
         
-        if st.session_state.model_choice == "OpenAI GPT":
-            llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
+        if st.session_state.model_choice == "Google Gemini":
+            llm = ChatOpenAI(model_name="gemini-pro", temperature=0)
         else:  # Google Gemini
             llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0)
         
