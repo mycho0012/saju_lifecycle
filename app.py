@@ -55,7 +55,7 @@ with st.sidebar:
         st.rerun()  # 여기를 수정했습니다
 
     st.session_state.model_choice = st.selectbox(
-        "AI 모델을 선택해 주세요", ("OpenAI GPT", "Google Gemini"), index=0
+        "AI 모델을 선택해 주세요", ("Google Gemini", "Google Gemini"), index=0
     )
 
 if 'messages' not in st.session_state:
