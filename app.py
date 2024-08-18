@@ -34,8 +34,8 @@ def parse_date(input_str):
 def create_chain(model_choice):
     prompt = load_prompt("saju_prompt_general.yaml", encoding="utf-8")
     
-    if model_choice == "Google Gemini":
-        llm = ChatOpenAI(model_name="gemini-pro", temperature=0)
+    if model_choice == "OpenAI GPT":
+        llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
     else:  # Google Gemini
         llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0)
     
@@ -55,7 +55,7 @@ with st.sidebar:
         st.rerun()  # 여기를 수정했습니다
 
     st.session_state.model_choice = st.selectbox(
-        "AI 모델을 선택해 주세요", ("Google Gemini", "Google Gemini"), index=0
+        "AI 모델을 선택해 주세요", ("OpenAI GPT", "Google Gemini"), index=0
     )
 
 if 'messages' not in st.session_state:
@@ -132,7 +132,7 @@ if not st.session_state.analyzed:
                         "birth_year": str(birth_year),
                         "current_year": str(current_year),
                         "gender": gender,
-                        "question": "전체적인 사주 해석과 24절기에 기반한 60년 인생의 생애주기를 자세하게 분석해주세요."
+                        "question": "전체적인 사주 해석과 lifecycle 의 24절기를 제공한 인생의 24절기를 참고해서 60년 인생의 생애주기를 자세하게 분석해주세요."
                     })
 
                     st.subheader("AI의 사주 해석 및 조언")
@@ -174,15 +174,16 @@ if st.session_state.analyzed:
         
         답변 시 다음 사항을 고려해주세요:
         1. 사주팔자의 음양오행 균형을 고려하여 해석해주세요.
-        2. 사용자의 성별과 나이에 맞는 분석을 제공해주세요.
-        3. 현대적 맥락에서 실용적인 분석을 해주세요.
-        4. 답변은 친절하고 이해하기 쉬운 언어로 분석해주세요.
+        2. 사용자의 성별과 나이에 맞는 사주팔자를 분석해주세요.
+        3. 현대적 맥락에서 실용적인 입장에서 사주팔자를 분석해 주세요.
+        4. 답변은 친절하고 이해하기 쉬운 언어로 제공해주세요.
         5. 필요하다면 생애주기 정보를 참고하여 답변할 수 있습니다.
+
         사주와 운세는 절대적인 것이 아니라 참고사항임을 언급하고, 개인의 노력과 선택이 중요함을 강조해주세요.
         """
         
-        if st.session_state.model_choice == "Google Gemini":
-            llm = ChatOpenAI(model_name="gemini-pro", temperature=0)
+        if st.session_state.model_choice == "OpenAI GPT":
+            llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
         else:  # Google Gemini
             llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0)
         
