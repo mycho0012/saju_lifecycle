@@ -39,7 +39,7 @@ def create_chain(model_choice):
     prompt = load_prompt("saju_prompt_general.yaml", encoding="utf-8")
     
     if model_choice == "OpenAI GPT":
-        llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
+        llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0,max_tokens=3000)
     else:  # Google Gemini
         llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0)
     
@@ -187,7 +187,7 @@ if st.session_state.analyzed:
         """
         
         if st.session_state.model_choice == "OpenAI GPT":
-            llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
+            llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0,max_tokens=3000)
         else:  # Google Gemini
             llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0)
         
